@@ -1,1 +1,1 @@
-Version 1.2 (as of exercise 1.2)
+courseinfo app
