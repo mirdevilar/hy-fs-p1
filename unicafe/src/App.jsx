@@ -4,9 +4,27 @@ const Button = ({onClick, text}) => (
   <button onClick={onClick}>{text}</button>
 )
 
-const Statistics = ({count, name}) => (
+const Counter = ({count, name}) => (
   <p>{name} {count}</p>
 )
+
+const Statistics = (p) => {
+  if (p.total !== 0) {
+    return (
+      <>
+        <Counter count={p.good} name="good" />
+        <Counter count={p.neutral} name="neutral" />
+        <Counter count={p.bad} name="bad" />
+        <Counter count={p.total} name="total" />
+        <Counter count={p.average} name="average" />
+        <Counter count={p.positive} name="positive" />
+      </>
+    )
+  }
+  return (
+    <p>No f*cks given yet (sorry)</p>
+  )
+}
 
 const App = () => {
   // save clicks of each button to its own state
@@ -25,12 +43,7 @@ const App = () => {
       <Button onClick={() => setNeutral(neutral + 1)} text="neutral" />
       <Button onClick={() => setBad(bad + 1)} text="bad" />
       <h1>statistics</h1>
-      <Statistics count={good} name="good" />
-      <Statistics count={neutral} name="neutral" />
-      <Statistics count={bad} name="bad" />
-      <Statistics count={total} name="total" />
-      <Statistics count={average} name="average" />
-      <Statistics count={positive} name="positive" />
+      <Statistics good={good} neutral={neutral} bad={bad} total={total} average={average} positive={positive} />
     </>
   )
 }
