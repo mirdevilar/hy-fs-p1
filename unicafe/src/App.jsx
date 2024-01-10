@@ -4,21 +4,26 @@ const Button = ({onClick, text}) => (
   <button onClick={onClick}>{text}</button>
 )
 
-const StatisticsLine = ({count, text}) => (
-  <p>{text} {count}</p>
+const StatisticsLine = ({value, text}) => (
+  <tr>
+    <td>{text}</td>
+    <td>{value}</td>
+  </tr>
 )
 
 const Statistics = (p) => {
   if (p.total !== 0) {
     return (
-      <>
-        <StatisticsLine count={p.good} text="good" />
-        <StatisticsLine count={p.neutral} text="neutral" />
-        <StatisticsLine count={p.bad} text="bad" />
-        <StatisticsLine count={p.total} text="total" />
-        <StatisticsLine count={p.average} text="average" />
-        <StatisticsLine count={p.positive} text="positive" />
-      </>
+      <table>
+        <tbody>
+          <StatisticsLine value={p.good} text="good" />
+          <StatisticsLine value={p.neutral} text="neutral" />
+          <StatisticsLine value={p.bad} text="bad" />
+          <StatisticsLine value={p.total} text="total" />
+          <StatisticsLine value={p.average} text="average" />
+          <StatisticsLine value={p.positive} text="positive" />
+        </tbody>
+      </table>
     )
   }
   return (
@@ -33,8 +38,8 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   const total = good + neutral + bad
-  const average = total !== 0 ? (good - bad) / total : 0
-  const positive = total !==0 ? good / total + " %" : "N/A"
+  const average = Math.round((good - bad) / total * 100) / 100
+  const positive = Math.round(good / total * 100) + " %"
 
   return (
     <>
