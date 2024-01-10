@@ -14,6 +14,10 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
+  const total = good + neutral + bad
+  const average = total !== 0 ? (good - bad) / total : 0
+  const positive = total !==0 ? good / total + " %" : "N/A"
+
   return (
     <>
       <h1>give feedback</h1>
@@ -24,6 +28,9 @@ const App = () => {
       <Counter count={good} name="good" />
       <Counter count={neutral} name="neutral" />
       <Counter count={bad} name="bad" />
+      <Counter count={total} name="total" />
+      <Counter count={average} name="average" />
+      <Counter count={positive} name="positive" />
     </>
   )
 }
