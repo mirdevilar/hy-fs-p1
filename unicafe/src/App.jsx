@@ -4,7 +4,7 @@ const Button = ({onClick, text}) => (
   <button onClick={onClick}>{text}</button>
 )
 
-const Counter = ({count, name}) => (
+const Statistics = ({count, name}) => (
   <p>{name} {count}</p>
 )
 
@@ -25,12 +25,12 @@ const App = () => {
       <Button onClick={() => setNeutral(neutral + 1)} text="neutral" />
       <Button onClick={() => setBad(bad + 1)} text="bad" />
       <h1>statistics</h1>
-      <Counter count={good} name="good" />
-      <Counter count={neutral} name="neutral" />
-      <Counter count={bad} name="bad" />
-      <Counter count={total} name="total" />
-      <Counter count={average} name="average" />
-      <Counter count={positive} name="positive" />
+      <Statistics count={good} name="good" />
+      <Statistics count={neutral} name="neutral" />
+      <Statistics count={bad} name="bad" />
+      <Statistics count={total} name="total" />
+      <Statistics count={average} name="average" />
+      <Statistics count={positive} name="positive" />
     </>
   )
 }
