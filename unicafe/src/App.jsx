@@ -4,20 +4,20 @@ const Button = ({onClick, text}) => (
   <button onClick={onClick}>{text}</button>
 )
 
-const Counter = ({count, name}) => (
-  <p>{name} {count}</p>
+const StatisticsLine = ({count, text}) => (
+  <p>{text} {count}</p>
 )
 
 const Statistics = (p) => {
   if (p.total !== 0) {
     return (
       <>
-        <Counter count={p.good} name="good" />
-        <Counter count={p.neutral} name="neutral" />
-        <Counter count={p.bad} name="bad" />
-        <Counter count={p.total} name="total" />
-        <Counter count={p.average} name="average" />
-        <Counter count={p.positive} name="positive" />
+        <StatisticsLine count={p.good} text="good" />
+        <StatisticsLine count={p.neutral} text="neutral" />
+        <StatisticsLine count={p.bad} text="bad" />
+        <StatisticsLine count={p.total} text="total" />
+        <StatisticsLine count={p.average} text="average" />
+        <StatisticsLine count={p.positive} text="positive" />
       </>
     )
   }
